@@ -7,6 +7,9 @@ provider:
   runtime: python3.9
   region: us-east-1
   memorySize: 128
+  apiGateway:
+    apiKeys:
+      - netflixApiKey
 
 functions:
   findMatchingNetflixEntertainment:
@@ -15,12 +18,14 @@ functions:
       - http:
           path: search
           method: post
+          private: true
   findMediaDetails:
     handler: findMediaDetails.lambda_handler
     events:
       - http:
           path: details
           method: post
+          private: true
   uploadUnogsCountry:
     handler: uploadUnogsCountries.lambda_handler
   findCountries:
@@ -29,3 +34,4 @@ functions:
       - http:
           path: countries
           method: get
+          private: true
