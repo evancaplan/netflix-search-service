@@ -19,10 +19,10 @@ def get_details_for(id):
 
     return {
         'statusCode': 200,
+
         headers: {
             'Access-Control-Allow-Origin': '*',
             'Access-Control-Allow-Credentials': true,
-            'Access-Control-Allow-Methods': 'POST,OPTIONS',
         },
         'body': {'details': details_json}
     }

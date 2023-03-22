@@ -1,6 +1,6 @@
 org: evancaplan
-app: netflix-app-service
-service: netflix-app-service
+app: netflix-search-service
+service: netflix-search-service
 
 provider:
   name: aws
@@ -9,7 +9,7 @@ provider:
   memorySize: 128
   apiGateway:
     apiKeys:
-      - netflixApiKey
+      - netflixSearchApiKey
 
 functions:
   findMatchingNetflixEntertainment:
@@ -19,6 +19,16 @@ functions:
           path: search
           method: post
           private: true
+          cors:
+            origin: '*'
+            headers:
+              - Content-Type
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+              - Access-Control-Allow-Origin
   findMediaDetails:
     handler: findMediaDetails.lambda_handler
     events:
@@ -26,6 +36,16 @@ functions:
           path: details
           method: post
           private: true
+          cors:
+            origin: '*'
+            headers:
+              - Content-Type
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+              - Access-Control-Allow-Origin
   uploadUnogsCountry:
     handler: uploadUnogsCountries.lambda_handler
   findCountries:
@@ -35,3 +55,14 @@ functions:
           path: countries
           method: get
           private: true
+          cors:
+            origin: '*'
+            headers:
+              - Content-Type
+              - cache-control
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+              - Access-Control-Allow-Origin

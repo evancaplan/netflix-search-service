@@ -22,10 +22,10 @@ def get_media_for(event):
 
     return {
         'statusCode': 200,
+
         headers: {
             'Access-Control-Allow-Origin': '*',
             'Access-Control-Allow-Credentials': true,
-            'Access-Control-Allow-Methods': 'POST,OPTIONS',
         },
         'body': {'media': media_json['results'], 'total': media_json['total']}
     }
