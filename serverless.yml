@@ -28,7 +28,7 @@ functions:
               - X-Api-Key
               - X-Amz-Security-Token
               - X-Amz-User-Agent
-              - Access-Control-Allow-Origin
+            allowCredentials: true
   findMediaDetails:
     handler: findMediaDetails.lambda_handler
     events:
@@ -45,7 +45,7 @@ functions:
               - X-Api-Key
               - X-Amz-Security-Token
               - X-Amz-User-Agent
-              - Access-Control-Allow-Origin
+            allowCredentials: true
   uploadUnogsCountry:
     handler: uploadUnogsCountries.lambda_handler
   findCountries:
@@ -65,4 +65,4 @@ functions:
               - X-Api-Key
               - X-Amz-Security-Token
               - X-Amz-User-Agent
-              - Access-Control-Allow-Origin
+            allowCredentials: true
